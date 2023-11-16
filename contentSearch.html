@@ -1,0 +1,9 @@
+<template>
+     <lightning-card>
+        <c-content-search-from onsearchcontent={searchcontentHandler}></c-content-search-from>
+    </lightning-card>
+    {searchText}
+    <lightning-card>
+        <c-content-search-result search-text={searchText}></c-content-search-result>
+    </lightning-card>
+</template>
