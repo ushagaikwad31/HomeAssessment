@@ -1,0 +1,45 @@
+<template>
+    <lightning-card title={title}>
+        <lightning-layout multiple-rows class="slds-p-around_small">
+            <lightning-layout-item size="12">
+                        <template for:each={contents} for:item="content">
+                            <lightning-layout class="slds-box slds-m-around_small" key={content.Id}>
+                                <lightning-layout-item size="12">
+                                    <strong>Title : </strong>  {content.Title__c}                                  
+                                </lightning-layout-item>
+                       
+                                
+                            </lightning-layout>
+                        </template>
+            </lightning-layout-item>
+
+            <lightning-layout-item size="12">
+                <template for:each={contents} for:item="content">
+                    <lightning-layout class="slds-box slds-m-around_small" key={content.Id}>
+                  
+                        <lightning-layout-item size="6">
+                           <!--<strong>Content  :</strong> {content.Body__c}--> 
+                           <strong>Please click on textarea to generate HTML </strong>
+                            <textarea class="slds-textarea slds-text-font_monospace"
+                            onchange={handleBodyChange}
+                            onkeyup={handleBodyChange}
+                            onclick={handleBodyChange}
+                           
+                            rows="20" >
+                            {content.Body__c}</textarea>
+                        </lightning-layout-item>
+
+                        <lightning-layout-item size="6">
+                            <c-markdown-preview body={body}></c-markdown-preview>
+                        </lightning-layout-item>    
+
+                        
+                    </lightning-layout>
+                </template>
+        </lightning-layout-item>
+        
+        </lightning-layout>
+     
+    </lightning-card>
+  
+</template>
